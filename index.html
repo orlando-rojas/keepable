@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keepable</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="keepable-title">{keep<span>able</span>}</h1>
+      <p class="welcome-msg">
+        Welcome to {keepable}. <span class="weather">2gfa2gfa2gfa2gfa2gfa</span>
+      </p>
+    </header>
+    <main>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li class="nav-item active">
+            <img src="images/icon-llaves.svg" alt="#" />
+            <span>Notes</span>
+          </li>
+          <li class="nav-item">
+            <img src="images/icon-trash.svg" alt="#" />
+            <span>Trash</span>
+          </li>
+        </ul>
+      </nav>
+      <div class="notes">
+        <form action="#" class="new-note-form">
+          <input
+            type="text"
+            placeholder="Some great think!"
+            class="new-note-input"
+          />
+          <div class="form-bot">
+            <img src="images/icon-paleta.svg" alt="#" />
+            <input type="submit" value="Keep it!" class="btn-keep-it" />
+          </div>
+        </form>
+        <div class="saved-notes">
+          <div class="card">
+            <p class="card-text">This is the body for the note.</p>
+            <div class="card-options">
+              <img src="images/icon-paleta.svg" alt="#" />
+              <img src="images/icon-trash-dark.svg" alt="#" />
+            </div>
+          </div>
+          <div class="card">
+            <p class="card-text">This is the body for the note.</p>
+            <div class="card-options">
+              <img src="images/icon-paleta.svg" alt="#" />
+              <img src="images/icon-trash-dark.svg" alt="#" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="trash">
+        <div class="card">
+          <p class="card-text">This is the body for the note.</p>
+          <div class="card-options">
+            <img src="images/icon-paleta.svg" alt="#" />
+            <img src="images/icon-trash-dark.svg" alt="#" />
+          </div>
+        </div>
+        <div class="card">
+          <p class="card-text">This is the body for the note.</p>
+          <div class="card-options">
+            <img src="images/icon-paleta.svg" alt="#" />
+            <img src="images/icon-trash-dark.svg" alt="#" />
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
