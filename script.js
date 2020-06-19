@@ -103,7 +103,7 @@ navigator.geolocation.getCurrentPosition(processCoords);
 
 function getData(location) {
   return fetch(
-    `http://api.weatherapi.com/v1/current.json?key=fe8b6b3e90864740ab311327201906&q=${location.latitude},${location.longitude}`
+    `https://api.weatherapi.com/v1/current.json?key=fe8b6b3e90864740ab311327201906&q=${location.latitude},${location.longitude}`
   ).then((response) => {
     return response.json();
   });
