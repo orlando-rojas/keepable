@@ -46,7 +46,7 @@ function createNote() {
   newNote.classList.remove("hidden");
   newNote.firstElementChild.textContent = newNoteContent;
   newNote.style.background = formNewNote.style.background;
-  trashIcon = newNote.children[1].children[1].children[1];
+  trashIcon = newNote.children[1].children[2];
   console.log(trashIcon);
   trashIcon.addEventListener("click", moveToTrash);
   savedNotes.prepend(newNote);
@@ -55,13 +55,14 @@ function createNote() {
 }
 
 function moveToTrash() {
-  const currentNote = this.parentElement;
+  const currentNote = this.parentElement.parentElement;
   console.log(currentNote);
   const note = currentNote.cloneNode(true);
   console.log(note);
-  const paletteIcon = note.children[1].children[0];
-  const deleteIcon = note.children[1].children[1];
-  const recoverIcon = note.children[1].children[2];
+  const paletteIcon = note.children[1].children[1];
+  console.log(paletteIcon);
+  const deleteIcon = note.children[1].children[2];
+  const recoverIcon = note.children[1].children[3];
   paletteIcon.classList.add("hidden");
   recoverIcon.classList.remove("hidden");
   deleteIcon.addEventListener("click", deleteNote);
@@ -74,9 +75,9 @@ function moveToTrash() {
 function recoverNote() {
   const currentNote = this.parentElement.parentElement;
   const recoveredNote = currentNote.cloneNode(true);
-  const paletteIcon = recoveredNote.children[1].children[0];
-  const trashIcon = recoveredNote.children[1].children[1];
-  const recoverIcon = recoveredNote.children[1].children[2];
+  const paletteIcon = recoveredNote.children[1].children[1];
+  const trashIcon = recoveredNote.children[1].children[2];
+  const recoverIcon = recoveredNote.children[1].children[3];
   paletteIcon.classList.remove("hidden");
   recoverIcon.classList.add("hidden");
   trashIcon.addEventListener("click", moveToTrash);
