@@ -20,14 +20,16 @@ setColors();
 function openPalette() {
   paleta = document.querySelectorAll(".icon-paleta");
   paleta.forEach((paleta) => {
-    paleta.addEventListener("click", () => {
-      colorsWrapper = paleta.parentElement.parentElement.firstElementChild;
-      console.log(colorsWrapper);
-      colorsWrapper.classList.contains("hidden")
-        ? colorsWrapper.classList.remove("hidden")
-        : colorsWrapper.classList.add("hidden");
-    });
+    paleta.addEventListener("click", showPalette);
   });
+}
+
+function showPalette() {
+  colorsWrapper = this.parentElement.parentElement.firstElementChild;
+  console.log(colorsWrapper);
+  colorsWrapper.classList.contains("hidden")
+    ? colorsWrapper.classList.remove("hidden")
+    : colorsWrapper.classList.add("hidden");
 }
 
 openPalette();
@@ -46,8 +48,10 @@ function createNote() {
   newNote.classList.remove("hidden");
   newNote.firstElementChild.textContent = newNoteContent;
   newNote.style.background = formNewNote.style.background;
+  paletaIcon = newNote.children[1].children[1];
+  console.log(paletaIcon);
+  paletaIcon.addEventListener("click", showPalette);
   trashIcon = newNote.children[1].children[2];
-  console.log(trashIcon);
   trashIcon.addEventListener("click", moveToTrash);
   savedNotes.prepend(newNote);
   checkIfSavedElements();
