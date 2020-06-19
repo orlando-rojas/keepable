@@ -40,6 +40,12 @@ function createNote() {
   newNote.classList.remove("hidden");
   newNote.firstElementChild.textContent = newNoteContent;
   newNote.style.background = formNewNote.style.background;
+  palleteOptions = newNote.children[1].children[0];
+  palleteOptions.children[0].addEventListener("click", () => {
+    palleteOptions.children[1].classList.contains("hidden") ? palleteOptions.children[1].classList.remove("hidden") : palleteOptions.children[1].classList.add("hidden"); 
+  });
+  setColors();
+  //palleteIcon.addEventListener("click", openPalette);
   trashIcon = newNote.children[1].children[1];
   trashIcon.addEventListener("click", moveToTrash);
   savedNotes.prepend(newNote);
