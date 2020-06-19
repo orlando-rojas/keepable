@@ -64,6 +64,7 @@ main {
   height: 50px;
   padding-left: 20px;
   border-radius: 0px 25px 25px 0px;
+  width: 280px;
   color: #fff;
   cursor: pointer;
 }
@@ -81,6 +82,8 @@ main {
 }
 
 .notes {
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -168,4 +171,16 @@ main {
 .trash {
   display: none;
   margin: 30px;
+}
+
+.no-saved-notes {
+  display: none;
+  font-weight: bold;
+  max-width: 280px;
+  font-size: 36px;
+  line-height: 48px;
+  text-align: center;
+  letter-spacing: 0.25px;
+  color: #ffffff;
+  margin: 0 auto;
 }
