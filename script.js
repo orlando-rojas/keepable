@@ -1,18 +1,56 @@
-//noteInput = Array.from(document.getElementsByName("note-content"));
+const formNewNote = document.getElementById("new-note");
+const noteModel = document.getElementById("model-card");
+const savedNotes = document.getElementById("saved-notes");
+const trash = document.getElementById("trash-notes");
+var allNotes; 
 
-formNewNote = document.getElementById("new-note");
-var noteModel = document.getElementById("model-card");
-savedNotes = document.getElementById("saved-notes");
-
+savedNotes.addEventListener("change", getAllNotes);
 formNewNote.addEventListener("submit", createNote);
+
 
 function createNote() {
   newNoteContent = document.getElementById("note-content").value;
   newNote = noteModel.cloneNode(true);
   newNote.classList.remove("hidden");
-  console.log(newNote);
   newNote.firstElementChild.textContent = newNoteContent;
+  trashIcon = newNote.children[1].children[1]
+  trashIcon.addEventListener("click", moveToTrash);
   savedNotes.prepend(newNote);
+}
+
+function getAllNotes() {
+  allNotes = savedNotes.querySelectorAll(".card"); 
+}
+
+function moveToTrash() {
+  const currentNote = this.parentElement.parentElement;
+  const note = currentNote.cloneNode(true);
+  const paletteIcon = note.children[1].children[0];
+  const deleteIcon = note.children[1].children[1];
+  const recoverIcon = note.children[1].children[2];
+  paletteIcon.classList.add("hidden");
+  recoverIcon.classList.remove("hidden");
+  deleteIcon.addEventListener("click", deleteNote);
+  recoverIcon.addEventListener("click", recoverNote);
+  trash.prepend(note);
+  currentNote.remove();
+}
+
+function recoverNote() {
+  const currentNote = this.parentElement.parentElement;
+  const recoveredNote = currentNote.cloneNode(true);
+  const paletteIcon = recoveredNote.children[1].children[0];
+  const recoverIcon = recoveredNote.children[1].children[2];
+  paletteIcon.classList.remove("hidden");
+  recoverIcon.classList.add("hidden");
+  trashIcon.addEventListener("click", moveToTrash);
+  savedNotes.prepend(recoveredNote)
+  currentNote.remove();
+}
+
+function deleteNote() {
+  const currentNote = this.parentElement.parentElement;
+  currentNote.remove();
 }
 
 const navItems = document.querySelectorAll(".nav-item");
