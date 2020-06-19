@@ -35,12 +35,12 @@ function changeColor() {
 }
 
 function createNote() {
-  colorsWrapper = document.getElementById("new-note");
+  //colorsWrapper = document.getElementById("new-note");
   newNoteContent = document.getElementById("note-content").value;
   newNote = noteModel.cloneNode(true);
   newNote.classList.remove("hidden");
   newNote.firstElementChild.textContent = newNoteContent;
-  newNote.style.background = colorsWrapper.style.background;
+  newNote.style.background = formNewNote.style.background;
   trashIcon = newNote.children[1].children[1];
   trashIcon.addEventListener("click", moveToTrash);
   savedNotes.prepend(newNote);
