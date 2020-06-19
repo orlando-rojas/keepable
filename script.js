@@ -1,3 +1,4 @@
+
 //noteInput = Array.from(document.getElementsByName("note-content"));
 
 
@@ -83,3 +84,4 @@ const checkIfSavedElements = () => {
 };
 
 checkIfSavedElements();
+
