@@ -164,6 +164,13 @@ main {
   margin-right: 10px;
 }
 
+.colors-section {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 40px;
+}
+
 .saved-notes {
   display: flex;
   flex-wrap: wrap;

@@ -29,7 +29,9 @@ function openPalette() {
 openPalette();
 
 function changeColor() {
-  note = this.parentElement.parentElement.parentElement;
+  note = this.parentElement.parentElement.parentElement.parentElement;
+  console.log("elemento");
+  console.log(note);
   note.style.background = this.style.background;
 }
 
@@ -42,9 +44,10 @@ function createNote() {
   newNote.style.background = formNewNote.style.background;
   palleteOptions = newNote.children[1].children[0];
   palleteOptions.children[0].addEventListener("click", () => {
-    palleteOptions.children[1].classList.contains("hidden") ? palleteOptions.children[1].classList.remove("hidden") : palleteOptions.children[1].classList.add("hidden"); 
+    palleteOptions.children[1].classList.contains("hidden") ? palleteOptions.children[1].classList.remove("hidden") : palleteOptions.children[1].classList.add("hidden");
+    setColors(); 
   });
-  setColors();
+  
   //palleteIcon.addEventListener("click", openPalette);
   trashIcon = newNote.children[1].children[1];
   trashIcon.addEventListener("click", moveToTrash);
