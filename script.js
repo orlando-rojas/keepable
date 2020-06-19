@@ -45,17 +45,19 @@ function createNote() {
   //colorsWrapper = document.getElementById("new-note");
   newNoteContent = document.getElementById("note-content").value;
   newNote = noteModel.cloneNode(true);
+  //colorWrp = newNote.children[1].children[];
+  //console.log(colorWrp);
   newNote.classList.remove("hidden");
   newNote.firstElementChild.textContent = newNoteContent;
   newNote.style.background = formNewNote.style.background;
   paletaIcon = newNote.children[1].children[1];
-  console.log(paletaIcon);
   paletaIcon.addEventListener("click", showPalette);
   trashIcon = newNote.children[1].children[2];
   trashIcon.addEventListener("click", moveToTrash);
   savedNotes.prepend(newNote);
   checkIfSavedElements();
   formNewNote.reset();
+  setColors();
 }
 
 function moveToTrash() {
