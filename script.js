@@ -25,7 +25,7 @@ function openPalette() {
 }
 
 function showPalette() {
-  colorsWrapper = this.parentElement.parentElement.firstElementChild;
+  colorsWrapper = this.parentElement.firstElementChild;
   console.log(colorsWrapper);
   colorsWrapper.classList.contains("hidden")
     ? colorsWrapper.classList.remove("hidden")
