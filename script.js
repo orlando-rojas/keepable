@@ -18,6 +18,24 @@ function createNote() {
   formNewNote.reset();
 }
 
+function setColors() {
+  const allColors = document.querySelectorAll(".color");
+  allColors.forEach((div) => {
+    div.style.background = div.dataset.color;
+  });
+}
+
+setColors();
+
+function openPalette() {
+  colorsWrapper = document.querySelector(".colors-wrapper");
+  paleta = document.querySelector(".icon-paleta");
+  paleta.addEventListener("click", () => {
+    console.log(colorsWrapper.style.display);
+  });
+}
+
+openPalette();
 
 function moveToTrash() {
   const currentNote = this.parentElement.parentElement;
@@ -72,7 +90,6 @@ navItems.forEach((item) => {
 
 const checkIfSavedElements = () => {
   const savedNotes = document.querySelector(".saved-notes");
-  console.log(savedNotes);
   if (savedNotes.childElementCount <= 2)
     document.querySelector(".no-saved-notes").style.display = "flex";
   else document.querySelector(".no-saved-notes").style.display = "none";
@@ -80,6 +97,7 @@ const checkIfSavedElements = () => {
 
 checkIfSavedElements();
 
+/*
 const apiKey = "fe8b6b3e90864740ab311327201906";
 
 function processCoords(position) {
@@ -106,4 +124,4 @@ function getData(location) {
   ).then((response) => {
     return response.json();
   });
-}
+}*/
