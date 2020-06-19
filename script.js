@@ -5,7 +5,6 @@ const trash = document.getElementById("trash-notes");
 var allNotes;
 //var paletteColors = document.queryCommandValue(".colors-wrapper");
 
-
 formNewNote.addEventListener("submit", createNote);
 
 function setColors() {
@@ -19,10 +18,15 @@ function setColors() {
 setColors();
 
 function openPalette() {
-  colorsWrapper = document.querySelector(".colors-wrapper");
-  paleta = document.querySelector(".icon-paleta");
-  paleta.addEventListener("click", () => {
-    colorsWrapper.classList.contains("hidden") ? colorsWrapper.classList.remove("hidden") : colorsWrapper.classList.add("hidden"); 
+  paleta = document.querySelectorAll(".icon-paleta");
+  paleta.forEach((paleta) => {
+    paleta.addEventListener("click", () => {
+      colorsWrapper = paleta.parentElement.parentElement.firstElementChild;
+      console.log(colorsWrapper);
+      colorsWrapper.classList.contains("hidden")
+        ? colorsWrapper.classList.remove("hidden")
+        : colorsWrapper.classList.add("hidden");
+    });
   });
 }
 
@@ -31,6 +35,7 @@ openPalette();
 function changeColor() {
   console.log("llego");
   note = this.parentElement.parentElement.parentElement;
+  console.log(note);
   note.style.background = this.style.background;
 }
 
@@ -41,7 +46,8 @@ function createNote() {
   newNote.classList.remove("hidden");
   newNote.firstElementChild.textContent = newNoteContent;
   newNote.style.background = formNewNote.style.background;
-  trashIcon = newNote.children[1].children[1];
+  trashIcon = newNote.children[1].children[1].children[1];
+  console.log(trashIcon);
   trashIcon.addEventListener("click", moveToTrash);
   savedNotes.prepend(newNote);
   checkIfSavedElements();
@@ -49,8 +55,10 @@ function createNote() {
 }
 
 function moveToTrash() {
-  const currentNote = this.parentElement.parentElement;
+  const currentNote = this.parentElement;
+  console.log(currentNote);
   const note = currentNote.cloneNode(true);
+  console.log(note);
   const paletteIcon = note.children[1].children[0];
   const deleteIcon = note.children[1].children[1];
   const recoverIcon = note.children[1].children[2];
@@ -101,7 +109,7 @@ navItems.forEach((item) => {
 
 const checkIfSavedElements = () => {
   const savedNotes = document.querySelector(".saved-notes");
-  if (savedNotes.childElementCount <= 2)
+  if (savedNotes.childElementCount <= 1)
     document.querySelector(".no-saved-notes").style.display = "flex";
   else document.querySelector(".no-saved-notes").style.display = "none";
 };
