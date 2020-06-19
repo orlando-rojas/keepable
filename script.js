@@ -2,24 +2,23 @@ const formNewNote = document.getElementById("new-note");
 const noteModel = document.getElementById("model-card");
 const savedNotes = document.getElementById("saved-notes");
 const trash = document.getElementById("trash-notes");
-var allNotes; 
+var allNotes;
 
 savedNotes.addEventListener("change", getAllNotes);
 formNewNote.addEventListener("submit", createNote);
-
 
 function createNote() {
   newNoteContent = document.getElementById("note-content").value;
   newNote = noteModel.cloneNode(true);
   newNote.classList.remove("hidden");
   newNote.firstElementChild.textContent = newNoteContent;
-  trashIcon = newNote.children[1].children[1]
+  trashIcon = newNote.children[1].children[1];
   trashIcon.addEventListener("click", moveToTrash);
   savedNotes.prepend(newNote);
 }
 
 function getAllNotes() {
-  allNotes = savedNotes.querySelectorAll(".card"); 
+  allNotes = savedNotes.querySelectorAll(".card");
 }
 
 function moveToTrash() {
@@ -44,7 +43,7 @@ function recoverNote() {
   paletteIcon.classList.remove("hidden");
   recoverIcon.classList.add("hidden");
   trashIcon.addEventListener("click", moveToTrash);
-  savedNotes.prepend(recoveredNote)
+  savedNotes.prepend(recoveredNote);
   currentNote.remove();
 }
 
@@ -84,10 +83,20 @@ checkIfSavedElements();
 const apiKey = "fe8b6b3e90864740ab311327201906";
 
 function processCoords(position) {
+  let weather = document.querySelector(".weather");
+  let location = {};
   let currentLocation = {};
   currentLocation["latitude"] = position.coords.latitude;
   currentLocation["longitude"] = position.coords.longitude;
-  getData(currentLocation).then((data) => console.log(data));
+  getData(currentLocation).then((data) => {
+    location["city"] = data.location.name;
+    location["region"] = data.location.region;
+    location["country"] = data.location.country;
+    location["temperature"] = data.current.temp_c;
+    location["condition"] = data.current.condition.text;
+    console.log(location);
+    weather.textContent = `Today's Forecast for ${location["city"]}, ${location["region"]} Province, ${location["country"]}: ${location["temperature"]}°, ${location["condition"]}`;
+  });
 }
 
 navigator.geolocation.getCurrentPosition(processCoords);
