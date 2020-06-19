@@ -18,15 +18,19 @@ function setColors() {
 
 setColors();
 
-function openPalette() {
-  colorsWrapper = document.querySelector(".colors-wrapper");
+function openPalette(pos) {
+  colorsWrapper = document.querySelectorAll(".colors-wrapper");
+  lastWrapper = colorsWrapper[pos];
+  console.log(colorsWrapper);
+  console.log(lastWrapper);
+  console.log(colorsWrapper);
   paleta = document.querySelector(".icon-paleta");
   paleta.addEventListener("click", () => {
-    colorsWrapper.classList.contains("hidden") ? colorsWrapper.classList.remove("hidden") : colorsWrapper.classList.add("hidden"); 
+    lastWrapper.classList.contains("hidden") ? lastWrapper.classList.remove("hidden") : lastWrapper.classList.add("hidden"); 
   });
 }
 
-openPalette();
+openPalette(0);
 
 function changeColor() {
   note = this.parentElement.parentElement.parentElement.parentElement;
@@ -37,6 +41,8 @@ function changeColor() {
 
 function createNote() {
   //colorsWrapper = document.getElementById("new-note");
+  colorsWrapper = document.querySelectorAll(".colors-wrapper");
+  posNote = colorsWrapper.lenght;
   newNoteContent = document.getElementById("note-content").value;
   newNote = noteModel.cloneNode(true);
   newNote.classList.remove("hidden");
@@ -45,10 +51,9 @@ function createNote() {
   palleteOptions = newNote.children[1].children[0];
   palleteOptions.children[0].addEventListener("click", () => {
     palleteOptions.children[1].classList.contains("hidden") ? palleteOptions.children[1].classList.remove("hidden") : palleteOptions.children[1].classList.add("hidden");
-    setColors(); 
+    setColors();
+    openPalette(posNote); 
   });
-  
-  //palleteIcon.addEventListener("click", openPalette);
   trashIcon = newNote.children[1].children[1];
   trashIcon.addEventListener("click", moveToTrash);
   savedNotes.prepend(newNote);
