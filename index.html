@@ -31,9 +31,10 @@
         </ul>
       </nav>
       <div class="notes">
-        <form action="#" class="new-note-form">
+        <form action="#" id="new-note" class="new-note-form">
           <input
             type="text"
+            id = "note-content"
             placeholder="Some great think!"
             class="new-note-input"
           />
@@ -42,20 +43,8 @@
             <input type="submit" value="Keep it!" class="btn-keep-it" />
           </div>
         </form>
-        <div class="saved-notes">
-          <div class="no-saved-notes">
-            <img src="images/curly-open.png" alt="#" />
-            <p>Notes you add appear here</p>
-            <img src="images/curly-close.png" alt="#" />
-          </div>
-          <div class="card">
-            <p class="card-text">This is the body for the note.</p>
-            <div class="card-options">
-              <img src="images/icon-paleta.svg" alt="#" />
-              <img src="images/icon-trash-dark.svg" alt="#" />
-            </div>
-          </div>
-          <div class="card">
+        <div id="saved-notes" class="saved-notes">
+          <div id="model-card" class="card hidden">
             <p class="card-text">This is the body for the note.</p>
             <div class="card-options">
               <img src="images/icon-paleta.svg" alt="#" />

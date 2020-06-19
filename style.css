@@ -140,6 +140,10 @@ main {
   justify-content: space-between;
 }
 
+.hidden {
+  display: none;
+}
+
 .card-text {
   font-weight: normal;
   font-size: 18px;
