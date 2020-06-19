@@ -1,6 +1,6 @@
 //noteInput = Array.from(document.getElementsByName("note-content"));
 
-/*formNewNote = document.getElementById("new-note");
+formNewNote = document.getElementById("new-note");
 var noteModel = document.getElementById("model-card");
 savedNotes = document.getElementById("saved-notes");
 
@@ -42,7 +42,7 @@ const checkIfSavedElements = () => {
 };
 
 checkIfSavedElements();
-*/
+
 const apiKey = "fe8b6b3e90864740ab311327201906";
 
 function processCoords(position) {
