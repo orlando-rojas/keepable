@@ -142,10 +142,6 @@ main {
   justify-content: space-between;
 }
 
-.hidden {
-  display: none;
-}
-
 .card-text {
   font-weight: normal;
   font-size: 18px;
@@ -210,4 +206,8 @@ main {
   background-color: white;
   border-radius: 50%;
   margin-right: 4px;
+}
+
+.hidden {
+  display: none;
 }

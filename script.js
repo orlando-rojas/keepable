@@ -3,8 +3,36 @@ const noteModel = document.getElementById("model-card");
 const savedNotes = document.getElementById("saved-notes");
 const trash = document.getElementById("trash-notes");
 var allNotes;
+//var paletteColors = document.queryCommandValue(".colors-wrapper");
+
 
 formNewNote.addEventListener("submit", createNote);
+
+function setColors() {
+  const allColors = document.querySelectorAll(".color");
+  allColors.forEach((div) => {
+    div.style.background = div.dataset.color;
+    div.addEventListener("click", changeColor);
+  });
+}
+
+setColors();
+
+function openPalette() {
+  colorsWrapper = document.querySelector(".colors-wrapper");
+  paleta = document.querySelector(".icon-paleta");
+  paleta.addEventListener("click", () => {
+    colorsWrapper.classList.contains("hidden") ? colorsWrapper.classList.remove("hidden") : colorsWrapper.classList.add("hidden"); 
+  });
+}
+
+openPalette();
+
+function changeColor() {
+  console.log("llego");
+  note = this.parentElement.parentElement.parentElement;
+  note.style.background = this.style.background;
+}
 
 function createNote() {
   newNoteContent = document.getElementById("note-content").value;
@@ -17,25 +45,6 @@ function createNote() {
   checkIfSavedElements();
   formNewNote.reset();
 }
-
-function setColors() {
-  const allColors = document.querySelectorAll(".color");
-  allColors.forEach((div) => {
-    div.style.background = div.dataset.color;
-  });
-}
-
-setColors();
-
-function openPalette() {
-  colorsWrapper = document.querySelector(".colors-wrapper");
-  paleta = document.querySelector(".icon-paleta");
-  paleta.addEventListener("click", () => {
-    console.log(colorsWrapper.style.display);
-  });
-}
-
-openPalette();
 
 function moveToTrash() {
   const currentNote = this.parentElement.parentElement;
