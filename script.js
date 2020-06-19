@@ -15,7 +15,9 @@ function createNote() {
   trashIcon.addEventListener("click", moveToTrash);
   savedNotes.prepend(newNote);
   checkIfSavedElements();
+  formNewNote.reset();
 }
+
 
 function moveToTrash() {
   const currentNote = this.parentElement.parentElement;
@@ -36,6 +38,7 @@ function recoverNote() {
   const currentNote = this.parentElement.parentElement;
   const recoveredNote = currentNote.cloneNode(true);
   const paletteIcon = recoveredNote.children[1].children[0];
+  const trashIcon = recoveredNote.children[1].children[1];
   const recoverIcon = recoveredNote.children[1].children[2];
   paletteIcon.classList.remove("hidden");
   recoverIcon.classList.add("hidden");
