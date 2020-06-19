@@ -4,7 +4,6 @@ const savedNotes = document.getElementById("saved-notes");
 const trash = document.getElementById("trash-notes");
 var allNotes;
 
-savedNotes.addEventListener("change", getAllNotes);
 formNewNote.addEventListener("submit", createNote);
 
 function createNote() {
@@ -15,10 +14,7 @@ function createNote() {
   trashIcon = newNote.children[1].children[1];
   trashIcon.addEventListener("click", moveToTrash);
   savedNotes.prepend(newNote);
-}
-
-function getAllNotes() {
-  allNotes = savedNotes.querySelectorAll(".card");
+  checkIfSavedElements();
 }
 
 function moveToTrash() {
@@ -33,6 +29,7 @@ function moveToTrash() {
   recoverIcon.addEventListener("click", recoverNote);
   trash.prepend(note);
   currentNote.remove();
+  checkIfSavedElements();
 }
 
 function recoverNote() {
@@ -60,7 +57,6 @@ navItems.forEach((item) => {
     });
     this.classList.add("active");
     let divClass = this.textContent.trim().toLowerCase();
-    console.log(divClass);
     if (divClass == "trash") {
       document.querySelector(".notes").style.display = "none";
       document.querySelector(".trash").style.display = "flex";
@@ -95,7 +91,6 @@ function processCoords(position) {
     location["country"] = data.location.country;
     location["temperature"] = data.current.temp_c;
     location["condition"] = data.current.condition.text;
-    console.log(location);
     weather.textContent = `Today's Forecast for ${location["city"]}, ${location["region"]} Province, ${location["country"]}: ${location["temperature"]}°, ${location["condition"]}`;
   });
 }
