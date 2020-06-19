@@ -1,7 +1,3 @@
-
-//noteInput = Array.from(document.getElementsByName("note-content"));
-
-
 const formNewNote = document.getElementById("new-note");
 const noteModel = document.getElementById("model-card");
 const savedNotes = document.getElementById("saved-notes");
@@ -85,3 +81,21 @@ const checkIfSavedElements = () => {
 
 checkIfSavedElements();
 
+const apiKey = "fe8b6b3e90864740ab311327201906";
+
+function processCoords(position) {
+  let currentLocation = {};
+  currentLocation["latitude"] = position.coords.latitude;
+  currentLocation["longitude"] = position.coords.longitude;
+  getData(currentLocation).then((data) => console.log(data));
+}
+
+navigator.geolocation.getCurrentPosition(processCoords);
+
+function getData(location) {
+  return fetch(
+    `http://api.weatherapi.com/v1/current.json?key=fe8b6b3e90864740ab311327201906&q=${location.latitude},${location.longitude}`
+  ).then((response) => {
+    return response.json();
+  });
+}

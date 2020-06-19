@@ -14,7 +14,11 @@
     <header>
       <h1 class="keepable-title">{keep<span>able</span>}</h1>
       <p class="welcome-msg">
-        Welcome to {keepable}. <span class="weather">2gfa2gfa2gfa2gfa2gfa</span>
+        Welcome to {keepable}.
+        <span class="weather">
+          Today's Forecast for Santiago de Surco, Lima Province, Peru: 18°,
+          Cloudy</span
+        >
       </p>
     </header>
     <main>
@@ -34,7 +38,7 @@
         <form action="#" id="new-note" class="new-note-form">
           <input
             type="text"
-            id = "note-content"
+            id="note-content"
             placeholder="Some great think!"
             class="new-note-input"
           />
@@ -44,6 +48,11 @@
           </div>
         </form>
         <div id="saved-notes" class="saved-notes">
+          <div class="no-saved-notes">
+            <img src="images/curly-open.png" alt="#" />
+            <p>Notes you add appear here</p>
+            <img src="images/curly-close.png" alt="#" />
+          </div>
           <div id="model-card" class="card hidden">
             <p class="card-text">This is the body for the note.</p>
             <div class="card-options">
