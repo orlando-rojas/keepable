@@ -88,6 +88,7 @@ main {
 }
 
 .new-note-form {
+  position: relative;
   margin: 20px auto 60px auto;
   width: 600px;
   height: 150px;
@@ -98,8 +99,9 @@ main {
 
 .new-note-input {
   border: none;
-  margin: 20px;
-  padding: 2px;
+  margin: 20px 20px 35px 20px;
+
+  padding: 5px;
   width: 90%;
 }
 
@@ -183,4 +185,29 @@ main {
   letter-spacing: 0.25px;
   color: #ffffff;
   margin: 0 auto;
+}
+
+.colors-wrapper {
+  background-color: red;
+  height: 65px;
+  width: 155px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  position: absolute;
+  bottom: 40px;
+}
+
+.yellow {
+  background-color: "yellow";
+}
+
+.color {
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 50%;
+  margin-right: 4px;
 }
