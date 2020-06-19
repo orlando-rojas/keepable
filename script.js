@@ -3,25 +3,16 @@ const noteModel = document.getElementById("model-card");
 const savedNotes = document.getElementById("saved-notes");
 const trash = document.getElementById("trash-notes");
 var allNotes;
+//var paletteColors = document.queryCommandValue(".colors-wrapper");
+
 
 formNewNote.addEventListener("submit", createNote);
-
-function createNote() {
-  newNoteContent = document.getElementById("note-content").value;
-  newNote = noteModel.cloneNode(true);
-  newNote.classList.remove("hidden");
-  newNote.firstElementChild.textContent = newNoteContent;
-  trashIcon = newNote.children[1].children[1];
-  trashIcon.addEventListener("click", moveToTrash);
-  savedNotes.prepend(newNote);
-  checkIfSavedElements();
-  formNewNote.reset();
-}
 
 function setColors() {
   const allColors = document.querySelectorAll(".color");
   allColors.forEach((div) => {
     div.style.background = div.dataset.color;
+    div.addEventListener("click", changeColor);
   });
 }
 
@@ -31,11 +22,31 @@ function openPalette() {
   colorsWrapper = document.querySelector(".colors-wrapper");
   paleta = document.querySelector(".icon-paleta");
   paleta.addEventListener("click", () => {
-    console.log(colorsWrapper.style.display);
+    colorsWrapper.classList.contains("hidden") ? colorsWrapper.classList.remove("hidden") : colorsWrapper.classList.add("hidden"); 
   });
 }
 
 openPalette();
+
+function changeColor() {
+  console.log("llego");
+  note = this.parentElement.parentElement.parentElement;
+  note.style.background = this.style.background;
+}
+
+function createNote() {
+  //colorsWrapper = document.getElementById("new-note");
+  newNoteContent = document.getElementById("note-content").value;
+  newNote = noteModel.cloneNode(true);
+  newNote.classList.remove("hidden");
+  newNote.firstElementChild.textContent = newNoteContent;
+  newNote.style.background = formNewNote.style.background;
+  trashIcon = newNote.children[1].children[1];
+  trashIcon.addEventListener("click", moveToTrash);
+  savedNotes.prepend(newNote);
+  checkIfSavedElements();
+  formNewNote.reset();
+}
 
 function moveToTrash() {
   const currentNote = this.parentElement.parentElement;
