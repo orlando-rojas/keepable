@@ -133,6 +133,7 @@ main {
   width: 260px;
   height: 260px;
   margin-right: 20px;
+  margin-bottom: 20px;
   background: #ffffff;
   box-shadow: 5px 5px 15px rgba(153, 155, 158, 0.85);
   border-radius: 8px;
@@ -144,6 +145,7 @@ main {
 
 .card-text {
   font-weight: normal;
+  word-break: break-all;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 0.25px;
@@ -163,11 +165,13 @@ main {
 
 .saved-notes {
   display: flex;
+  flex-wrap: wrap;
   margin: 30px;
 }
 
 .trash {
   display: none;
+  flex-wrap: wrap;
   margin: 30px;
 }
 

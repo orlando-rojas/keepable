@@ -29,7 +29,6 @@ function openPalette() {
 openPalette();
 
 function changeColor() {
-  console.log("llego");
   note = this.parentElement.parentElement.parentElement;
   note.style.background = this.style.background;
 }
