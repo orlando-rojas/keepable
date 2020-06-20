@@ -38,7 +38,9 @@ function changeColor() {
   console.log("llego");
   note = this.parentElement.parentElement.parentElement;
   console.log(note);
-  note.style.background = this.style.background;
+  newColor = this.style.background;
+  note.style.background = newColor
+  note.children[0].style.background = newColor;
 }
 
 function createNote() {
