@@ -137,13 +137,16 @@ main {
   width: 260px;
   height: 260px;
   margin-right: 20px;
+  margin-bottom: 20px;
   background: #ffffff;
   box-shadow: 5px 5px 15px rgba(153, 155, 158, 0.85);
   border-radius: 8px;
   padding: 20px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-between;
+  word-break: break-all;
 }
 
 .card-text {
@@ -168,11 +171,13 @@ main {
 .saved-notes {
   display: flex;
   margin: 30px;
+  flex-wrap: wrap;
 }
 
 .trash {
   display: none;
   margin: 30px;
+  flex-wrap: wrap;
 }
 
 .no-saved-notes {
