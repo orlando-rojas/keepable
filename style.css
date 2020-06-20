@@ -5,9 +5,14 @@
   text-decoration: none;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: #1d2128;
   font-family: "Roboto", sans-serif;
+  height: 100%;
 }
 
 header {
@@ -45,12 +50,14 @@ header {
 
 main {
   display: flex;
+  min-width: auto;
 }
 
 .navbar {
   padding-top: 10px;
   width: 280px;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   border-right: 2px solid #d1d1d1;
 }
 
@@ -201,7 +208,7 @@ main {
 }
 
 .colors-wrapper {
-  background-color: red;
+  background-color: whitesmoke;
   height: 65px;
   width: 155px;
   display: flex;
