@@ -99,6 +99,11 @@ main {
 
 .card-b {
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 63px;
+  justify-content: space-between;
 }
 
 .new-note-input {

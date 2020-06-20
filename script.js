@@ -70,6 +70,7 @@ function moveToTrash() {
   const deleteIcon = note.children[1].children[2];
   const recoverIcon = note.children[1].children[3];
   paletteIcon.classList.add("hidden");
+  note.children[1].children[0].classList.add("hidden");
   recoverIcon.classList.remove("hidden");
   deleteIcon.addEventListener("click", deleteNote);
   recoverIcon.addEventListener("click", recoverNote);
@@ -85,10 +86,13 @@ function recoverNote() {
   const trashIcon = recoveredNote.children[1].children[2];
   const recoverIcon = recoveredNote.children[1].children[3];
   paletteIcon.classList.remove("hidden");
+  paletteIcon.addEventListener("click", showPalette)
   recoverIcon.classList.add("hidden");
   trashIcon.addEventListener("click", moveToTrash);
   savedNotes.prepend(recoveredNote);
   currentNote.remove();
+  checkIfSavedElements();
+  setColors();
 }
 
 function deleteNote() {
@@ -123,7 +127,6 @@ const checkIfSavedElements = () => {
 
 checkIfSavedElements();
 
-/*
 const apiKey = "fe8b6b3e90864740ab311327201906";
 
 function processCoords(position) {
@@ -150,4 +153,4 @@ function getData(location) {
   ).then((response) => {
     return response.json();
   });
-}*/
+}
