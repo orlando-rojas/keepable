@@ -116,7 +116,7 @@ navItems.forEach((item) => {
 
 const checkIfSavedElements = () => {
   const savedNotes = document.querySelector(".saved-notes");
-  if (savedNotes.childElementCount <= 1)
+  if (savedNotes.childElementCount <= 2)
     document.querySelector(".no-saved-notes").style.display = "flex";
   else document.querySelector(".no-saved-notes").style.display = "none";
 };
